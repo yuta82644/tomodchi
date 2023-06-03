@@ -5,7 +5,12 @@ class FeedsController < ApplicationController
 
   def new
     @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+      
+    end
   end
+
 
   def create
     @feed = Feed.new(feed_params)
@@ -51,6 +56,6 @@ class FeedsController < ApplicationController
   private
 
   def feed_params
-    params.require(:feed).permit(:image, :image_cache)
+    params.require(:feed).permit(:content, :image, :image_cache)
   end
 end
