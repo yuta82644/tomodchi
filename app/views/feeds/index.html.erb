@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "content_area">
+
+<h1>投稿一覧</h1>
+
+<ul>
+<% @feeds.each do |feed| %>
+  <li class="content">
+  
+  <p><%= image_tag feed.image.url, class: 'picture'%></p>
+        <p><%= feed.content %></p>
+        <p><%= feed.user.name %></p>
+        <p><%= link_to 'Show', feed, class: 'link'%></p>
+        <p><%= link_to 'Edit', edit_feed_path(feed), class: 'link' %></p>
+        <p><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } , class: 'link'%></p>
+  
+  </li>
+<% end %>
+</ul>
+
+</div>
