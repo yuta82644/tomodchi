@@ -42,9 +42,11 @@ class FeedsController < ApplicationController
       render :edit
     end
   end
+
   def confirm
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
+   
   end
 
   def destroy
