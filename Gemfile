@@ -61,3 +61,7 @@ gem 'bcrypt'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
