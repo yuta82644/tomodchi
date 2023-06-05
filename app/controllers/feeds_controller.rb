@@ -1,16 +1,14 @@
 class FeedsController < ApplicationController
   def index
     @feeds = Feed.all
+    
   end
 
   def new
     @feed = Feed.new
-    if params[:back]
-      @feed = Feed.new(feed_params)
-      
-    end
+    # @feeds = Feed.all
+    @feed = Feed.new(feed_params) if params[:back]
   end
-
 
   def create
     @feed = Feed.new(feed_params)
@@ -46,9 +44,12 @@ class FeedsController < ApplicationController
   def confirm
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-   
+    if @feed.valid?
+      render :confirm
+    else
+      render :new
+    end
   end
-
   def destroy
     @feed = Feed.find(params[:id])
     @feed.destroy

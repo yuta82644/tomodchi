@@ -13,10 +13,11 @@
 
 <header>
 <div class="header">
-  <h1>tunagari</h1>
+  <h1 class="main-text">tunagari</h1>
 </div>
 </header>
   <body>
+  <div class="wrapper">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
@@ -29,9 +30,11 @@
       <%= link_to "Login", new_session_path %>
     <% end %>
       <%= yield %>
-  </body>
+  </div>
 
   <footer>
-  
+ 
+  <p><small>&copy;2023 tunagari </small></p></div>
   </footer>
+  </body>
 </html>

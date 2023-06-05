@@ -7,14 +7,16 @@
 <ul>
 <% @feeds.each do |feed| %>
   <li class="content">
-  
-  <p><%= image_tag feed.image.url, class: 'picture'%></p>
+
+  <p><%= image_tag(feed.image.url, class: 'picture') if feed.image.present? %></p>
+  <div class="flex">
+        <p><%= feed.user.name %>さんの投稿</p>
         <p><%= feed.content %></p>
-        <p><%= feed.user.name %></p>
         <p><%= link_to 'Show', feed, class: 'link'%></p>
         <p><%= link_to 'Edit', edit_feed_path(feed), class: 'link' %></p>
         <p><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } , class: 'link'%></p>
-  
+  </div>
+
   </li>
 <% end %>
 </ul>
