@@ -10,6 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+<header>
+<div class="header">
+  <h1>tunagari</h1>
+</div>
+</header>
   <body>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
@@ -24,4 +30,8 @@
     <% end %>
       <%= yield %>
   </body>
+
+  <footer>
+  
+  </footer>
 </html>
